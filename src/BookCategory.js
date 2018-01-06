@@ -11,7 +11,7 @@ class BookCategory extends Component {
     selfChange: false
   }
   render() {
-    const {books, switchShelf} = this.PropsTypes
+    const {books, switchShelf} = this.props
     const categories = [
       {
         type: 'currentlyReading',
