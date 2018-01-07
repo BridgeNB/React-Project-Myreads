@@ -4,14 +4,13 @@ import BookShelf from './BookShelf'
 
 class BookCategory extends Component {
   static PropTypes = {
-    books: PropTypes.array.isRequired,
-    switchShelf: PropTypes.func.isRequired
+    books: PropTypes.array.isRequired
   }
   state = {
     selfChange: false
   }
   render() {
-    const {books, switchShelf} = this.props
+    const {books} = this.props
     const categories = [
       {
         type: 'currentlyReading',
@@ -27,11 +26,12 @@ class BookCategory extends Component {
     return (<div className='list-book-content'>
       {
         categories.map((category, index) => {
-          const categoryBooks = books.filter(book => book.category === category.type)
+          const categoryBooks = books.filter(book => book.shelf === category.type)
+          console.log(categoryBooks)
           return (<div className='bookshelf' key={index}>
             <h2 className='bookshelf-title'>{category.title}</h2>
             <div className='bookshelf-books'>
-              <BookShelf books={categoryBooks} switchShelf={switchShelf}/>
+              <BookShelf books={categoryBooks} />
             </div>
           </div>)
         })

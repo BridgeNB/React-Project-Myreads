@@ -9,7 +9,7 @@ class BooksApp extends Component {
     books: []
   }
   /*Load all books*/
-  compoentDidMount() {
+  componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
     })
@@ -28,9 +28,6 @@ class BooksApp extends Component {
     const { books } = this.state
     return (
       <div className="app">
-
-        {console.log(books)}
-
         <Route exact path='/' render={() => (
             <div className='list-books'>
               <div className='list-book-title'>
