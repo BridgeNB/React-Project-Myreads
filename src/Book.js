@@ -12,8 +12,8 @@ class Book extends Component {
     return (<li>
       <div className="book">
         <div className="book-top">
-          {console.log(coverImage)}
           <div className="book-cover" style={{
+              width: 128, height: 188,
               backgroundImage: `url(${coverImage})`
             }}></div>
         </div>
