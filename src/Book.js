@@ -1,12 +1,15 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import ShelfSwitcher from './ShelfSwitcher'
 
 class Book extends Component {
   static propTypes = {
-    book: PropTypes.object.isRequired
+    book: PropTypes.object.isRequired,
+    // books: PropTypes.object.isRequired,
+    switchShelf: PropTypes.func.isRequired
   }
   render() {
-    const {book} = this.props
+    const {book, books, switchShelf} = this.props
     const coverImage = book.imageLinks.thumbnail
     const title = book.title
     return (<li>
@@ -16,6 +19,11 @@ class Book extends Component {
               width: 128, height: 188,
               backgroundImage: `url(${coverImage})`
             }}></div>
+            {/* <ShelfSwitcher
+              book={ book }
+              books={ books }
+              switchShelf={switchShelf }
+            /> */}
         </div>
         <div className="book-title">{title}</div>
         {

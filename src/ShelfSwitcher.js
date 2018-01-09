@@ -5,19 +5,19 @@ class ShelfSwitcher extends Component {
   /*Create static PropTypes*/
   static PropTypes = {
     book: PropTypes.object.isRequired,
-    bookList: PropTypes.array.isRequired,
+    books: PropTypes.array.isRequired,
     switchShelf: PropTypes.func.isRequired,
   }
   render() {
     const {
       book,
-      bookList,
+      books,
       switchShelf
     } = this.props
     // none is default shelf
     let currShelf = 'none'
     // Find if book was in current shelf
-    for (let item of bookList) {
+    for (let item of books) {
       if (item.id === book.id) {
         currShelf = item.shelf
         break

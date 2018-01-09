@@ -1,17 +1,19 @@
-import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import React, {Component} from 'react'
+import {Route} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import BookCategory from './BookCategory'
+import Search from './Search'
 import './App.css'
 
 class BooksApp extends Component {
   state = {
     books: []
   }
-  /*Load all books*/
+  /* Load all books */
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
-      this.setState({ books })
+      this.setState({books})
     })
   }
 
@@ -25,23 +27,19 @@ class BooksApp extends Component {
   }
 
   render() {
-    const { books } = this.state
-    return (
-      <div className="app">
-        <Route exact path='/' render={() => (
-            <div className='list-books'>
-              <div className='list-book-title'>
-                <h1>MyReads</h1>
-              </div>
-              <BookCategory
-               books={ books }
-               switchShelf={this.switchShelf}
-              />
-            </div>
-          )}
-        />
-      </div>
-    )
+    const {books} = this.state
+    return (<div className="app">
+      <Route path="/search" render={({history}) => (<Search books={books}/>)}/>
+      <Route exact path='/' render={() => (<div className='list-books'>
+          <div className='list-book-title'>
+            <h1>MyReads</h1>
+          </div>
+          <BookCategory books={books} switchShelf={this.switchShelf}/>
+          <div className='open-search'>
+            <Link to='/search'>Search</Link>
+          </div>
+        </div>)}/>
+    </div>)
   }
 }
 
