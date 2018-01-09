@@ -2,18 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class ShelfSwitcher extends Component {
-  /*Create static PropTypes*/
+  /* Create static PropTypes */
   static PropTypes = {
     book: PropTypes.object.isRequired,
     books: PropTypes.array.isRequired,
-    switchShelf: PropTypes.func.isRequired,
+    switchShelf: PropTypes.func.isRequired
   }
   render() {
-    const {
-      book,
-      books,
-      switchShelf
-    } = this.props
+    const {book, books, switchShelf} = this.props
     // none is default shelf
     let currShelf = 'none'
     // Find if book was in current shelf
@@ -24,17 +20,15 @@ class ShelfSwitcher extends Component {
       }
     }
     // Render book switcher
-    return (
-        <div className="book-shelf-changer">
-          <select onChange={(event) => switchShelf(book, event.target.value)} defaultValue={ currShelf }>
-            <option value='none' disabled>Move to...</option>
-            <option value="currentlyReading">Currently Reading</option>
-            <option value="wantToRead">Want to Read</option>
-            <option value="read">Read</option>
-            <option value="none">None</option>
-          </select>
-        </div>
-    )
+    return (<div className="book-shelf-changer">
+      <select onChange={(event) => switchShelf(book, event.target.value)} defaultValue={currShelf}>
+        <option value='none' disabled="disabled">Move to...</option>
+        <option value="currentlyReading">Currently Reading</option>
+        <option value="wantToRead">Want to Read</option>
+        <option value="read">Read</option>
+        <option value="none">None</option>
+      </select>
+    </div>)
   }
 }
 

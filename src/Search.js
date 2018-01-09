@@ -36,18 +36,13 @@ class Search extends Component {
         </div>
       </div>
       <div className='search-books-result'>
-        {newBooks.length > 0 && (
-          <div>
+        {
+          newBooks.length > 0 && (<div>
             <ol className='books-grid'>
-              {newBooks.map((book) => (
-                <Book
-                  book = { book }
-                  key = { book.id }
-                />
-              ))}
+              {newBooks.map((book) => (<Book book={book} books={books} key={book.id}/>))}
             </ol>
-          </div>
-        )}
+          </div>)
+        }
       </div>
     </div>)
   }
