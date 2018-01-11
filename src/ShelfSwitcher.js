@@ -6,7 +6,7 @@ class ShelfSwitcher extends Component {
   static PropTypes = {
     book: PropTypes.object.isRequired,
     books: PropTypes.array.isRequired,
-    switchShelf: PropTypes.func.isRequired
+    switchShelf: PropTypes.func.isRequired,
   }
   render() {
     const {book, books, switchShelf} = this.props
@@ -22,7 +22,7 @@ class ShelfSwitcher extends Component {
     // Render book switcher
     return (<div className="book-shelf-changer">
       <select onChange={(event) => switchShelf(book, event.target.value)} defaultValue={currShelf}>
-        <option value='none' disabled="disabled">Move to...</option>
+        <option value='none' disabled>Move to...</option>
         <option value="currentlyReading">Currently Reading</option>
         <option value="wantToRead">Want to Read</option>
         <option value="read">Read</option>

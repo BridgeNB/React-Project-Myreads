@@ -5,8 +5,8 @@ import ShelfSwitcher from './ShelfSwitcher'
 class Book extends Component {
   static propTypes = {
     book: PropTypes.object.isRequired,
-    books: PropTypes.object.isRequired,
-    switchShelf: PropTypes.func.isRequired
+    books: PropTypes.array.isRequired,
+    switchShelf: PropTypes.func.isRequired,
   }
   render() {
     const {book, books, switchShelf} = this.props
