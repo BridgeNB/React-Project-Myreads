@@ -6,7 +6,7 @@ class Book extends Component {
   static propTypes = {
     book: PropTypes.object.isRequired,
     books: PropTypes.array.isRequired,
-    switchShelf: PropTypes.func.isRequired,
+    switchShelf: PropTypes.func.isRequired
   }
   render() {
     const {book, books, switchShelf} = this.props

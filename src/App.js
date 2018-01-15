@@ -17,7 +17,7 @@ class BooksApp extends Component {
     })
   }
 
-  swithShelf = (newBook, newShelf) => {
+  switchShelf = (newBook, newShelf) => {
     BooksAPI.update(newBook, newShelf).then(response => {
       newBook.shelf = newShelf
       let updatedBooks = this.state.books.filter(book => book.id !== newBook.id)
@@ -29,9 +29,9 @@ class BooksApp extends Component {
   render() {
     const {books} = this.state
     return (<div className="app">
-      <Route path="/search" render={({history}) => (<Search books={books}/>)}/>
+      <Route path="/search" render={({history}) => (<Search books={books} switchShelf={this.switchShelf}/>)}/>
       <Route exact path='/' render={() => (<div className='list-books'>
-          <div className='list-book-title'>
+          <div className='list-books-title'>
             <h1>MyReads</h1>
           </div>
           <BookCategory books={books} switchShelf={this.switchShelf}/>

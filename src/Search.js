@@ -6,7 +6,8 @@ import * as BooksAPI from './BooksAPI'
 
 class Search extends Component {
   static propTypes = {
-    books: PropTypes.array.isRequired
+    books: PropTypes.array.isRequired,
+    switchShelf: PropTypes.func.isRequired
   }
   state = {
     query: '',
@@ -27,7 +28,7 @@ class Search extends Component {
   }
   render() {
     const {query, newBooks} = this.state
-    const {books} = this.props
+    const {books, switchShelf} = this.props
     return (<div className='search-books'>
       <div className='search-books-bar'>
         <Link className='close-search' to='/'>Close</Link>
@@ -39,7 +40,7 @@ class Search extends Component {
         {
           newBooks.length > 0 && (<div>
             <ol className='books-grid'>
-              {newBooks.map((book) => (<Book book={book} books={books} key={book.id}/>))}
+              {newBooks.map((book) => (<Book book={book} books={books} key={book.id} switchShelf={ switchShelf }/>))}
             </ol>
           </div>)
         }
