@@ -16,7 +16,7 @@ class BookCategory extends Component {
     const categories = [
       {
         type: 'currentlyReading',
-        title: 'Currently Reading='
+        title: 'Currently Reading'
       }, {
         type: 'wantToRead',
         title: 'Want to Read'
